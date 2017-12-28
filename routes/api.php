@@ -13,8 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+$router->group(['middleware' => 'jwt'], function () use($router) {
+	$router->post('send-email', 'ApiController@send');
 });
 
-$router->post('send-email', 'ApiController@send');
+$router->post('login', 'ApiController@login');

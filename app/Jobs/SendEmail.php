@@ -8,6 +8,7 @@
     use Illuminate\Contracts\Queue\ShouldQueue;
     use Illuminate\Foundation\Bus\Dispatchable;
     use Illuminate\Mail\Mailable;
+    use App\Mail\ErrorEmail;
 
     use Illuminate\Contracts\Mail\Mailer;
 
@@ -48,8 +49,8 @@
          * @param  Exception  $exception
          * @return void
          */
-        public function failed( Exception $exception )
+        public function failed( \Exception $exception, Mailer $mailer )
         {
-            // send email to the authenticated user.... (!)
+            $mailer->to(\Auth::user())->send(new ErrorEmail( $exception->getMessage() ));
         }
     }
