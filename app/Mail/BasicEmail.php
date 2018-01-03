@@ -19,7 +19,7 @@
         public function __construct( array $info )
         {
             $this->to( array_get($info, 'to') )
-                 ->cc( array_get($info, 'cc') )
+                 ->cc( array_get($info, 'cc', []) )
                  ->with( 'body', array_get($info, 'body') ); 
         }
 
