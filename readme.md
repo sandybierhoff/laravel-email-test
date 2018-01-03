@@ -7,25 +7,6 @@ php artisan db:seed
 ```
 You must have previously configured the mail provider to use. [Click here]( https://laravel.com/docs/5.5/mail#previewing-mailables-in-the-browser )
 
-Add the service provider to the providers array in config\app.php:
-
-```php
-Tymon\JWTAuth\Providers\LaravelServiceProvider::class
-```
-
-Add the facades to the aliases array also in config/app.php:
-
-```php
-'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
-'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
-```
-
-Run:
-```php
-php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
-php artisan jwt:secret
-```
-
 Finally:
 
 ```php
