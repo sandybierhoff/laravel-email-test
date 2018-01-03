@@ -49,8 +49,8 @@
          * @param  Exception  $exception
          * @return void
          */
-        public function failed( \Exception $exception, Mailer $mailer )
+        public function failed( \Exception $exception/*, Mailer $mailer*/ )
         {
-            $mailer->to(\Auth::user())->send(new ErrorEmail( $exception->getMessage() ));
+            // $mailer->to(\Auth::user())->send(new ErrorEmail( $exception->getMessage() ));
         }
     }
