@@ -68,7 +68,7 @@
                     alert(e.responseJSON.message);
                 },
                 onEmail: function(d) { 
-                    alert('walaaa.');
+                    alert('Email send ( sweetalert maybe.. )');
                 }
             }
         });

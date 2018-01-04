@@ -22,7 +22,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('home', ['token'=>\JWTAuth::fromUser( \Auth::user() )]);
+    {   
+        $token = \JWTAuth::fromUser( \Auth::user() );
+
+        return view('home', ['token'=>$token]);
+        // return view('home2');
     }
 }

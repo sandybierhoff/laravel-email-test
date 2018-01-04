@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {                
-        if( $request->wantsJson() ) { 
+        /* if( $request->wantsJson() ) { 
             if ( $exception instanceof ValidationException ) { 
                 return response()->json(['success'=>false, 'message'=> 'Validation Error', 'details'=>$exception->errors()], 422);
             }
@@ -60,7 +60,7 @@ class Handler extends ExceptionHandler
             else { 
                 return response()->json(['success'=>false, 'message'=>$exception->getMessage()]);
             } 
-        }       
+        }   */     
 
         return parent::render($request, $exception);
     }
