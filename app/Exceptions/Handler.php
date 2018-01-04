@@ -50,15 +50,17 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {                
-        if ( $exception instanceof ValidationException ) { 
-            return response()->json(['success'=>false, 'message'=> 'Validation Error', 'details'=>$exception->errors()], 422);
-        }
-        if( $exception instanceof UnauthorizedHttpException ) { 
-            return response()->json(['success'=>false, 'message'=> $exception->getMessage()], 401);                
-        }
-        else { 
-            return response()->json(['success'=>false, 'message'=>$exception->getMessage()]);
-        }
+        if( $request->wantsJson() ) { 
+            if ( $exception instanceof ValidationException ) { 
+                return response()->json(['success'=>false, 'message'=> 'Validation Error', 'details'=>$exception->errors()], 422);
+            }
+            if( $exception instanceof UnauthorizedHttpException ) { 
+                return response()->json(['success'=>false, 'message'=> $exception->getMessage()], 401);                
+            }
+            else { 
+                return response()->json(['success'=>false, 'message'=>$exception->getMessage()]);
+            } 
+        }       
 
         return parent::render($request, $exception);
     }
