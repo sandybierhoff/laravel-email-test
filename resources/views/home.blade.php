@@ -61,8 +61,8 @@
                     this.emails.push(''); 
                 },
                 send: function() {                     
-                    var data = { token:'{{ $token }}', subject: this.subject, body: this.body, to: this.emails[0], cc:this.emails.slice(1) };
-                      $.ajax({type: "POST", dataType: 'json', url: '/api/send-email', data: data}).then(this.onEmail, this.onError);
+                    var data = { subject: this.subject, body: this.body, to: this.emails[0], cc:this.emails.slice(1) };
+                      $.ajax({type: "POST", contentType: 'application/json', dataType: 'json', url: '/api/send-email', data: JSON.stringify(data)}).then(this.onEmail, this.onError);
                 },
                 onError: function(e) {                     
                     alert(e.responseJSON.message);
