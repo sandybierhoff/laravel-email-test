@@ -54,7 +54,7 @@
                     emails: [''],
                     subject: '',
                     body: '',
-                    working: false;
+                    working: false
                 };              
             },
             methods: {
