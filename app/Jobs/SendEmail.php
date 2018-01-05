@@ -51,6 +51,7 @@
          */
         public function failed( \Exception $exception/*, Mailer $mailer*/ )
         {
+            dd( $exception );
             // $mailer->to(\Auth::user())->send(new ErrorEmail( $exception->getMessage() ));
         }
     }
